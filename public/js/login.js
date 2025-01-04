@@ -20,16 +20,36 @@ async function login() {
                 switch(response['status']){
                     case '0': window.location.href = "/principal";
                     break;
-                    case '1': alert("Contraseña Incorrecta");
+                    case '1': Swal.fire({
+                        title:'Error!',
+                        text: 'Contraseña incorrecta',
+                        icon: 'error',
+                        confirmButtonText:'aceptar'
+                    });
                     break;
-                    case '2': alert("Usuario no registrado");
+                    case '2': Swal.fire({
+                        title:'Error!',
+                        text: 'Usuario no registrado',
+                        icon: 'error',
+                        confirmButtonText:'aceptar'
+                    });
                 }
             });
     }else{
         if(!jsonData['correo']){
-            alert("Ingrese el correo");
+            Swal.fire({
+                title:'Oops!',
+                text: 'Falta ingresar el correo',
+                icon: 'warning',
+                confirmButtonText:'aceptar'
+            })
         }else if(!jsonData['contrasena']){
-            alert("Ingrese la contraseña");
+            Swal.fire({
+                title:'Oops!',
+                text: 'Falta ingresar el contraseña',
+                icon: 'warning',
+                confirmButtonText:'aceptar'
+            })
         }
     }
     
